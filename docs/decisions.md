@@ -8,6 +8,10 @@
 
 Keeping them separate means each store does exactly one job: SQLite for permanent relational data, Redis for ephemeral cache.
 
+## Interfaces are co-located with their module (file), not extracted to a shared types file
+
+This is a small project. Interfaces that describe external API response shapes (e.g. `GeocodingApiResponse`) are implementation details — nothing outside the module (file) needs to know about them. Shared interfaces (e.g. `Coordinates`) are exported from the module (file) that owns them and imported directly by consumers. A separate `types.ts` would add navigation overhead without meaningful benefit at this scale.
+
 ## Redis is optional — service degrades gracefully when unavailable
 
 The brief requires caching, but a missing cache shouldn't make the service completely unusable. If Redis is down, forecast data is fetched fresh from Open-Meteo on every request — slower, but correct.
