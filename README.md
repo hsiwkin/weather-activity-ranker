@@ -77,6 +77,10 @@ The scoring logic uses the **Strategy pattern** — each activity is an independ
 - **Geocoding** — uses the first result from Open-Meteo's free geocoding endpoint. Ambiguous city names (e.g. "Springfield") will resolve to the most prominent match.
 - **Cache TTL** — defaults to 1 hour. Forecast data older than the TTL is automatically expired by Redis and re-fetched on the next request.
 
+## Architectural decisions
+
+Key design decisions — storage split, caching strategy, scoring pattern, logging — are documented in [`docs/decisions.md`](docs/decisions.md).
+
 ## Environment variables
 
 | Variable | Default | Description |
