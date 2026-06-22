@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.pnpm-store/
+
+# SQLite database file
+*.db
+*.db-shm
+*.db-wal
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+
+# Private docs
+docs/
+NOTES.md
+
+# OS
+.DS_Store
