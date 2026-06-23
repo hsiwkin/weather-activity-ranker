@@ -20,9 +20,3 @@
 - **GraphQL server** — evaluated Apollo Server vs alternatives (e.g. Pothos, Mercurius, plain `graphql-http`); chose Apollo for its built-in sandbox, mature ecosystem, and fit with the Node.js + GraphQL stack specified in the brief
 - **Apollo Sandbox prefill** — AI initially used wrong option name (`defaultQuery` vs `document`); I caught it wasn't working and asked to investigate rather than accepting the first attempt
 - **CI debugging** — CI failed across 4 successive runs (pnpm version conflict → Node version → missing `jest` dep → missing `ts-node`). Rather than fixing blindly, I set the AI to monitor CI in a loop — after each fix it watched the run, identified the next failure, applied a root-caused fix, and pushed again, repeating until green.
-
-## What I'd do with more time
-
-- Replace wind-speed proxy for surfing with actual wave height data (Open-Meteo marine API, conditional on coastal detection)
-- Add `pino` logger
-- Add an integration/e2e test hitting a real Open-Meteo response

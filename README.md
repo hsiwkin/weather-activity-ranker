@@ -9,6 +9,7 @@ A GraphQL API that takes a city name and scores the next 7 days of weather for f
 | [decisions.md](docs/decisions.md) | Architectural decisions and trade-offs |
 | [process.md](docs/process.md) | How the project was built and AI was used |
 | [questions.md](docs/questions.md) | Open questions for PM and assumptions made |
+| [next-steps.md](docs/next-steps.md) | Planned improvements and future work |
 
 ## How to run
 
