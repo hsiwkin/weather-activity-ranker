@@ -4,7 +4,7 @@ import { jest } from '@jest/globals';
 // work reliably with ESM when the factory references variables declared outside it.
 jest.unstable_mockModule('../../cache/redis.js', () => ({
   getWeatherCache: jest.fn(),
-  setWeatherCache: jest.fn().mockResolvedValue(undefined),
+  setWeatherCache: jest.fn(),
 }));
 
 jest.unstable_mockModule('openmeteo', () => ({
