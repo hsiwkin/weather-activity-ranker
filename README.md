@@ -2,6 +2,14 @@
 
 A GraphQL API that takes a city name and scores the next 7 days of weather for four activities: **skiing**, **surfing**, **outdoor sightseeing**, and **indoor sightseeing**. Each day gets a 0–10 score per activity based on real forecast data from [Open-Meteo](https://open-meteo.com/).
 
+## Documentation
+
+| Document | Contents |
+|---|---|
+| [decisions.md](docs/decisions.md) | Architectural decisions and trade-offs |
+| [process.md](docs/process.md) | How the project was built and AI was used |
+| [questions.md](docs/questions.md) | Open questions for PM and assumptions made |
+
 ## How to run
 
 **Prerequisites:** Node.js 20+, pnpm, Docker (for Redis)
