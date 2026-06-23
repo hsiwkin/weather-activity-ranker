@@ -10,7 +10,7 @@ describe('IndoorSightseeingScorer', () => {
     const days = [
       makeDay({ temperatureMax: 20, precipitationMm: 0, weatherCode: 0 }),
       makeDay({ precipitationMm: 15, weatherCode: 61 }),
-      makeDay({ temperatureMax: -5, snowfallMm: 10 }),
+      makeDay({ temperatureMax: -5, snowfallMm: 100 }),
     ];
     for (const day of days) {
       expect(indoor.score(day)).toBeCloseTo(10 - outdoor.score(day), 1);

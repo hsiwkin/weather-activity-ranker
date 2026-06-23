@@ -5,7 +5,7 @@ const scorer = new SkiingScorer();
 
 describe('SkiingScorer', () => {
   it('scores high on ideal conditions: cold, heavy snowfall, calm wind, no rain', () => {
-    const score = scorer.score(makeDay({ temperatureMax: -5, snowfallMm: 20, windSpeedMax: 10, precipitationMm: 0 }));
+    const score = scorer.score(makeDay({ temperatureMax: -5, snowfallMm: 200, windSpeedMax: 10, precipitationMm: 0 }));
     expect(score).toBeGreaterThanOrEqual(8);
   });
 
@@ -16,7 +16,7 @@ describe('SkiingScorer', () => {
 
   it('more snowfall produces a higher score', () => {
     const low = scorer.score(makeDay({ snowfallMm: 0 }));
-    const high = scorer.score(makeDay({ snowfallMm: 20 }));
+    const high = scorer.score(makeDay({ snowfallMm: 200 }));
     expect(high).toBeGreaterThan(low);
   });
 
@@ -27,14 +27,14 @@ describe('SkiingScorer', () => {
   });
 
   it('does not penalise precipitation when snowfall is present (it is snow, not rain)', () => {
-    const snowOnly = scorer.score(makeDay({ snowfallMm: 10, precipitationMm: 5 }));
-    const drySnow = scorer.score(makeDay({ snowfallMm: 10, precipitationMm: 0 }));
+    const snowOnly = scorer.score(makeDay({ snowfallMm: 100, precipitationMm: 5 }));
+    const drySnow = scorer.score(makeDay({ snowfallMm: 100, precipitationMm: 0 }));
     expect(snowOnly).toBeCloseTo(drySnow, 0);
   });
 
   it('penalises dangerous wind speeds', () => {
-    const calm = scorer.score(makeDay({ windSpeedMax: 10, snowfallMm: 10 }));
-    const storm = scorer.score(makeDay({ windSpeedMax: 70, snowfallMm: 10 }));
+    const calm = scorer.score(makeDay({ windSpeedMax: 10, snowfallMm: 100 }));
+    const storm = scorer.score(makeDay({ windSpeedMax: 70, snowfallMm: 100 }));
     expect(storm).toBeLessThan(calm);
   });
 

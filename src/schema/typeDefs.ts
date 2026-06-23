@@ -30,7 +30,6 @@ export const typeDefs = `#graphql
     temperatureMin: Float!
     precipitationMm: Float!
     windSpeedMax: Float!
-    "Snowfall in cm"
     snowfallMm: Float!
     "WMO weather interpretation code"
     weatherCode: Int!

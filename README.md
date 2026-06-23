@@ -73,7 +73,6 @@ The scoring logic uses the **Strategy pattern** — each activity is an independ
 ## Assumptions
 
 - **Surfing** — Open-Meteo's marine wave API requires coastal coordinates, which aren't guaranteed for an arbitrary city. Wind speed is used as a proxy for wave-generating conditions. This produces plausible relative scores but is not a substitute for real wave height data.
-- **Snowfall units** — Open-Meteo's `snowfall_sum` is in cm, exposed as `snowfallMm` in the schema (naming inconsistency noted).
 - **Geocoding** — uses the first result from Open-Meteo's free geocoding endpoint. Ambiguous city names (e.g. "Springfield") will resolve to the most prominent match.
 - **Cache TTL** — defaults to 1 hour. Forecast data older than the TTL is automatically expired by Redis and re-fetched on the next request.
 

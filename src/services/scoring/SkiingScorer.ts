@@ -14,8 +14,8 @@ export class SkiingScorer implements ActivityScorer {
   }
 
   private scoreSnow(snowfall: number): number {
-    // snowfall (cm): 0 → 0, 20+ → 1
-    return Math.min(snowfall / 20, 1);
+    // snowfall (mm): 0 → 0, 200+ → 1
+    return Math.min(snowfall / 200, 1);
   }
 
   private scoreTemp(tempMax: number): number {
@@ -34,7 +34,7 @@ export class SkiingScorer implements ActivityScorer {
 
   private scoreNoRain(precipMm: number, snowfall: number): number {
     // rain (precip without snow) wets the snow and ruins conditions
-    const isRain = snowfall < 1 && precipMm > 0;
+    const isRain = snowfall < 10 && precipMm > 0;
     if (!isRain) return 1;
     if (precipMm >= 5) return 0;
     return 1 - precipMm / 5;

@@ -63,7 +63,7 @@ export async function getWeatherForecast(coords: Coordinates): Promise<DayWeathe
     temperatureMin: temperatureMin[i],
     precipitationMm: precipitationSum[i],
     windSpeedMax: windSpeedMax[i],
-    snowfallMm: snowfallSum[i],
+    snowfallMm: snowfallSum[i] * 10, // Open-Meteo returns snowfall in cm; convert to mm for consistency with precipitationMm
     weatherCode: Math.round(weatherCode[i]),
   }));
 
