@@ -16,7 +16,7 @@
 
 ## Examples of AI decision making and oversight
 
-- **Storage split** — AI initially proposed SQLite-only (zero infrastructure, easier for reviewers); I challenged this with "why not Redis?", which led to the split: SQLite for permanent city coordinates, Redis for ephemeral forecast cache (documented in `decisions.md`)
+- **Storage split** — AI initially proposed SQLite-only (zero infrastructure, easier for reviewers); I challenged this with "why not Redis?", which led to the split: SQLite for permanent city coordinates, Redis for ephemeral forecast cache (documented in [decisions.md](decisions.md))
 - **GraphQL server** — evaluated Apollo Server vs alternatives (e.g. Pothos, Mercurius, plain `graphql-http`); chose Apollo for its built-in sandbox, mature ecosystem, and fit with the Node.js + GraphQL stack specified in the brief
 - **Apollo Sandbox prefill** — AI initially used wrong option name (`defaultQuery` vs `document`); I caught it wasn't working and asked to investigate rather than accepting the first attempt
 - **CI debugging** — CI failed across 4 successive runs (pnpm version conflict → Node version → missing `jest` dep → missing `ts-node`). Rather than fixing blindly, I set the AI to monitor CI in a loop — after each fix it watched the run, identified the next failure, applied a root-caused fix, and pushed again, repeating until green.
