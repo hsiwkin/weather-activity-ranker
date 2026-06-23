@@ -9,5 +9,5 @@
 - Replace `console.*` with `pino` — structured JSON output, configurable log levels, consistent format across Apollo Server and application code
 
 ## Features
-- Replace wind-speed proxy for surfing with actual wave height data (Open-Meteo marine API, conditional on coastal coordinates detection)
+- Replace wind-speed proxy for surfing with actual wave height data using the Open-Meteo marine API. No separate coastal detection service needed — the marine API returns `null` for `wave_height` on inland coordinates and real values for coastal ones. If all `wave_height` values are `null`, score surfing as `0` (no fallback to wind proxy — a misleading proxy score is worse than an honest zero) and expose a `marineDataAvailable: Boolean` flag on the response so clients can indicate that surfing is not applicable for that location.
 - Externalise scoring weights so they can be tuned without redeploying (env vars or a config table in SQLite)
