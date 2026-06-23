@@ -15,10 +15,6 @@ dist/
 .idea/
 .vscode/
 
-# Private docs (brief and job posting — not for public repo)
-docs/lead-engineer-test.docx
-docs/job-posting.md
-docs/README.md
 NOTES.md
 
 # OS
